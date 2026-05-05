@@ -1,0 +1,65 @@
+#work1
+lst = [(1, 3), (4, 2), (2, 5)]
+
+sorted_lst = sorted(lst, key=lambda x: x[1])
+
+print(sorted_lst)
+
+#work2  
+def division():
+    try:
+        a = int(input("შეიყვანეთ პირველი რიცხვი: "))
+        b = int(input("შეიყვანეთ მეორე რიცხვი: "))
+    except ValueError:
+        print("შეცდომა: გთხოვთ შეიყვანოთ მხოლოდ მთელი რიცხვები!")
+        return
+    
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        print("შეცდომა: ნულზე გაყოფა დაუშვებელია!")
+        return
+    
+    return result
+
+print(division())
+
+#work3
+from functools import reduce
+
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 15},
+    {"name": "Keyboard", "price": 25},
+    {"name": "Monitor", "price": 150},
+    {"name": "Power", "price": 100},
+    {"name": "Pad", "price": 10},
+]
+
+# filter() - ფასი 100-ზე ნაკლები
+filtered = list(filter(lambda x: x["price"] < 100, products))
+print("100-ზე ნაკლები ფასის პროდუქტები:")
+print(filtered)
+
+# map() - სახელი და ფასი
+mapped = list(map(lambda x: f"{x['name']}: {x['price']}$", products))
+print("\nყველა პროდუქტის სახელი და ფასი:")
+print(mapped)
+
+# sorted() - ფასის მიხედვით
+sorted_products = sorted(products, key=lambda x: x["price"])
+print("\nპროდუქტები ფასის მიხედვით დასორტირებული:")
+print(sorted_products)
+
+# reduce() - ფასების ჯამი
+total = reduce(lambda x, y: x + y["price"], products, 0)
+print("\nყველა პროდუქტის ფასების ჯამი:")
+print(total, "$")
+
+#work4
+def sum_recursive(n):
+    if n == 1:
+        return 1
+    return n + sum_recursive(n - 1)
+
+print(sum_recursive(5))
