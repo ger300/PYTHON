@@ -1,0 +1,33 @@
+def count_upper_and_convert(text):
+    upper_count = 0
+
+    for char in text:
+        if char.isupper():
+            upper_count += 1
+
+    upper_text = text.upper()
+
+    return upper_count, upper_text
+
+
+ 
+user_input = input("შეიყვანე ტექსტი: ")
+count, result = count_upper_and_convert(user_input)
+
+print(f"დიდი ასოების რაოდენობაა: {count}")
+print(f"Uppercase ტექსტი: {result}")
+
+
+
+import re
+
+def camel_to_snake(text):
+     snake = re.sub(r'([A-Z])', r'_\1', text).lower()
+    
+     return snake.lstrip('_')
+
+
+print(camel_to_snake("firstName"))            
+print(camel_to_snake("name"))                  
+print(camel_to_snake("preferredFirstName"))    
+print(camel_to_snake("lastName"))              
