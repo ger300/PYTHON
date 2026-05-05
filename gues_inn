@@ -1,0 +1,26 @@
+import random
+
+# შემთხვევითი რიცხვი 1-100
+secret = random.randint(1, 100)
+
+lives = 5
+
+print("Guessing Game დაიწყო! გაქვს 5 სიცოცხლე")
+
+while lives > 0:
+    guess = int(input("შეიყვანე რიცხვი (1-100): "))
+
+    if guess == secret:
+        print("🎉 გილოცავ! მოიგე!")
+        break
+    elif guess < secret:
+        print("ჩაფიქრებული რიცხვი მეტია")
+    else:
+        print("ჩაფიქრებული რიცხვი ნაკლებია")
+
+    lives -= 1
+    print("დარჩენილი სიცოცხლე:", lives)
+
+if lives == 0:
+    print("❌ წააგე!")
+    print("სწორი რიცხვი იყო:", secret)
